@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="styling.css">
 </head>
 
@@ -23,6 +24,7 @@
         <div class="maindiv">
             <div class="mainlink">
                 <div class="link"></div>
+                
                 <button id="logout">Log Out</button>
             </div>
         </div>
@@ -30,25 +32,19 @@
             <div class="uploaded"></div>
             <div class="data">
                 <label for="formDeviceFiles" class="fromDevice">
-                    <input type="file" id="formDeviceFiles" multiple>
-                    <img src="" id="upload" alt="">
+                    <input type="file" id="formDeviceFiles" onclick="slectingDoc()" multiple>
+                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
                 </label>
                 <input type="text" id="txt">
-            <div class="send">
-                <img src="" alt="send"></div>
-            
-            
-            
-            
-            
-            
-            
-            
+                <div class="send">
+                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                </div>
             </div>
         </div>
     </div>
 
-    <script src="app.js" type="module"></script>
+
+        <script src="app.js" type="module"></script>
 </body>
 
 </html>

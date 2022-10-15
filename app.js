@@ -87,13 +87,14 @@ onAuthStateChanged(auth, (user) => {
     var userEmail = user.email
     console.log(userEmail)
     document.getElementsByClassName("authdiv")[0].style.display = "none"
-    document.getElementsByClassName("cahtdiv")[0].style.display = ""
+    // document.getElementsByClassName("cahtdiv")[0].style.display = ""
     document.getElementsByClassName("link")[0].innerHTML = user.email;
+
     const q = query(collection(db, "messages"), orderBy("time", "asc"));
     const unsubscribe = onSnapshot(q, (snapshot) => {
       snapshot.docChanges().forEach((change) => {
         if (change.type === "added") {
-          // console.log("New city: ", change.doc.data());
+          console.log("New msg: ", change.doc.data());
           if (change.doc.data().sentBy == userEmail) {
             var msgDiv = document.createElement("div");
             msgDiv.className = "chat2"
@@ -116,10 +117,10 @@ onAuthStateChanged(auth, (user) => {
           }
         }
         if (change.type === "modified") {
-          console.log("Modified city: ", change.doc.data());
+          console.log("Modified msg: ", change.doc.data());
         }
         if (change.type === "removed") {
-          console.log("Removed city: ", change.doc.data());
+          console.log("Removed msg: ", change.doc.data());
         }
       });
     });
@@ -145,3 +146,15 @@ onAuthStateChanged(auth, (user) => {
     // ...
   }
 });
+
+// let formDeviceFiles = document.querySelector("#formDeviceFiles");
+// let txt = document.querySelector("#txt");
+
+// function slectingDoc(){
+// // alert($('input[type=file]').val())
+//   txt.value = $("#formDeviceFiles").val()
+// }
+
+
+
+
